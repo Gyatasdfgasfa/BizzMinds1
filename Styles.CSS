@@ -1,0 +1,130 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333; /* Darkened font color for general text */
+    transition: filter 0.5s ease; /* Smooth transition for the blur effect */
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #6b8e23; /* Olive green color for the heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for the heading */
+}
+
+button {
+    background-color: #6b8e23; /* Olive green for the button */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for the button */
+}
+
+button:hover {
+    background-color: #4a5d23; /* Darker olive green for hover */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.display {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333; /* Darkened font color for display text */
+    position: relative;
+    overflow: hidden;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.9); /* Initially scaled down */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.display.show {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Scale up */
+}
+
+.highlight, .earnings-highlight {
+    display: inline-block;
+    animation: moveIn 1s ease-out; /* Apply the move-in animation */
+}
+
+.highlight {
+    font-weight: bold;
+    color: #6b8e23; /* Olive green for highlighted text */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Shadow for highlighted text */
+}
+
+.earnings-highlight {
+    font-weight: bold;
+    color: #ff5722; /* Orange color for potential earnings */
+    background-color: #fff3e0; /* Light orange background */
+    border: 1px solid #ffab91; /* Light orange border */
+    border-radius: 4px;
+    padding: 10px;
+    display: block;
+    margin-top: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Shadow for earnings text */
+}
+
+.blurred {
+    filter: blur(5px); /* Apply blur effect */
+    pointer-events: none; /* Disable interactions */
+}
+
+@keyframes moveIn {
+    0% {
+        transform: translate(0, 0) scale(0.5); /* Start scaled down */
+        opacity: 0; /* Start hidden */
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(0.75); /* From top-left */
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(50%, -50%) scale(0.75); /* From top-right */
+        opacity: 0.75;
+    }
+    75% {
+        transform: translate(50%, 50%) scale(0.75); /* From bottom-right */
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(0, 0) scale(1); /* Final position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
